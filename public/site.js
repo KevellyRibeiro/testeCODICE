@@ -1,20 +1,15 @@
 const inputTexto = document.getElementById('enviarMensagem');
 const btnSair  = document.getElementById('btnSair');
 const getLocalStorage = () =>JSON.parse(localStorage.getItem('usuario')) ?? [];
-const setLocalStorage = (usuario) => localStorage.setItem("usuario", JSON.stringify(usuario))
 
 const socket = io();
 const { usuarionome, meuid } = Qs.parse(location.search, { ignoreQueryPrefix: true });
 
 socket.emit('entrarSala', { usuarionome, meuid});
-setLocalStorage({
-    nome: usuarionome,
-    meuId: meuid
-});
 
 inputTexto.addEventListener('keyup', function(e){
     var key = e.key === 'Enter';
-
+    
     if(key && this.value) {
         socket.emit('mensagemChat', this.value);
         this.value = '';
@@ -22,20 +17,20 @@ inputTexto.addEventListener('keyup', function(e){
 });
 
 btnSair.addEventListener('click', function() {
-
+    
     const sairSala = confirm('Certeza que deseja sair da sala?');
-
+    
     if (sairSala) {
         socket.emit('sairSala');
         window.location.href='index.html';
     }
-
+    
 });
 
 function adicionarNovaMensagem(mensagem) {
     const usuarioStorage = getLocalStorage();
     let minhaMensagem = false;
-
+    
     if(mensagem.meuid) {
         minhaMensagem = mensagem.meuid === usuarioStorage.meuId;
     }
@@ -93,7 +88,7 @@ socket.on('novaMensagem', (mensagem) => {
 });
 
 function criarListaUsuarios(usuarioNome) {
-
+    
     var listaUsuarios = document.getElementById("listaUsuarios");
     var liUsuario = criarElementoHtml("li", ["clearfix"]);
     var divDescricaoUsuario = criarElementoHtml('div', ["about"]);

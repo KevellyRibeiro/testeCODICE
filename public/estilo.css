@@ -1,6 +1,6 @@
 body{
     background-color: #f4f7f6;
-    margin-top:20px;
+    margin-top:100px;
 }
 
 .btnSair {
@@ -53,6 +53,9 @@ body{
     border-left: 1px solid #eaeaea;
     height: 100%;
     overflow: auto;
+}
+#kevao{
+    gap: 10px;
 }
 
 .people-list {
@@ -238,7 +241,18 @@ body{
     clear: both;
     height: 0
 }
+.main{
+    width: 88%;
+    height: 60px;
+    background-color: #f4f7f6;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    left: 110px;
+    border-top: 1px solid rgba(58, 57, 57, 0.13);
 
+}
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;
@@ -284,3 +298,105 @@ body{
         overflow-x: auto
     }
 }
+.button-container {
+    display: flex;
+    background-color: rgb(130, 37, 236);
+    width: 250px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
+          rgba(175, 16, 248, 0.5) 5px 10px 15px;
+    position: relative;
+    right: 90px;
+  }
+  
+  .button {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4f7f6;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    transform: translateY(-3px);
+    background-color: #111;
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+#cao{
+    width: 160px;
+    height: 140px;
+    position: relative;
+    right: 500px;
+}
+#btnSair {
+    --primary-color: #9f2cec;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  #btnSair .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #btnSair .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  #btnSair .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  #btnSair:hover {
+    background-color: var(--hover-color);
+  }
+  
+  #btnSair:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  #btnSair:hover .arrow:before {
+    right: 0;
+  }
